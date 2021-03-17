@@ -27,6 +27,14 @@ const userSchema = new Schema({
     type:String,
     enum:['Admin','User'],
     default:'User'
+  },
+  disponible:{
+    type:Boolean,
+    default:true
+  },
+  room_id:{
+    type: Schema.Types.ObjectId,
+    ref: 'room'
   }
 })
 module.exports = model('user',userSchema)
