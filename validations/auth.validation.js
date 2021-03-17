@@ -9,3 +9,10 @@ exports.registerValidations =async (data)=>{
    })
    return schema.validate(data)
 }
+exports.loginValidations =async (data)=>{
+   const schema = Joi.object({
+      password: Joi.string().required(),
+      number: Joi.string().required()
+   })
+   return schema.validate(data)
+}
