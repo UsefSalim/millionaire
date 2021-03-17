@@ -2,11 +2,14 @@ const express = require('express')
 const router = express.Router()
 
 const {auth,isAdmin} = require('../middlewares/auth.middlewares')
+const {createAdmin,profileController,validateUser} = require('../controllers/admin.controllers')
 
 
-// router.get('/user',isUser,auth,)
+router.get('/',isAdmin,auth,profileController)
 
-// router.get('/admin',isAdmin,auth,)
+router.post('/createadmin',isAdmin,auth,createAdmin)
+
+router.post('/validateuser/:id',isAdmin,auth,validateUser)
 
 
 module.exports = router

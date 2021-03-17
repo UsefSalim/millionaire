@@ -49,7 +49,7 @@ exports.loginController = async (req, res) =>
     const comparePassword = await bcrypt.compare(req.body.password, ifUserExist.password)
     if (!comparePassword)
       return res.status(400).json({ loginError: `number or password invalid` })
-    if(ifUserExist.validation ===false)
+    if(ifUserExist.validation === false)
      return res.status(400).json({ invalidAccount: `votre compte n'est pas valide` })
     const token =  Jwt.sign(
     {id: ifUserExist._id, role:ifUserExist.role},
